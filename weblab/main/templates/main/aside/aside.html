@@ -1,0 +1,19 @@
+{% load static %}
+
+<aside>
+    <div class="aside__body">
+        <img class="aside__image" src="{% static 'main/res/images/logo.svg' %}" alt="">
+        <span class="aside__title">Powered by <br> Кирилл Григорьев</span>
+        <h4 class="aside__subtitle">Navigation</h4>
+        <nav class="aside__navigation">
+            <a href="{% url 'home' %}" class="aside__link"><i class="fas fa-igloo"></i> home</a>
+            <a href="{% url 'posts' %}" class="aside__link"><i class="fas fa-address-card"></i> posts</a>
+            {% if user.is_authenticated %}
+            <a href="{% url 'create' %}" class="aside__link"><i class="far fa-plus-square"></i> add post</a>
+            <a href="{% url 'account_logout' %}" class="aside__link"><i class="fas fa-sign-out-alt"></i> log out</a>
+            {% else %}
+            <a href="{% url 'account_login' %}" class="aside__link"><i class="fas fa-sign-in-alt"></i> log in</a>
+            {% endif %}
+        </nav>
+    </div>
+</aside>

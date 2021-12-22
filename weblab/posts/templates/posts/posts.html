@@ -1,0 +1,19 @@
+{% extends 'main/layout.html' %}
+
+{% block title %} Posts {% endblock %}
+
+{% block content %}
+<h1>Posts</h1>
+{% if posts %}
+{% for post in posts %}
+<div class="post">
+    <h2 class="post__title">{{ post.title }}</h2>
+    <h3 class="post__subtitle">{{ post.subtitle }}</h3>
+    <p class="post__text">{{ post.text }}</p>
+    <a href="{% url 'posts-detail' post.id %}" class="btn btn-warning">Read More</a><br>
+</div>
+{% endfor %}
+{% else %}
+    <p>Posts list is empty</p>
+{% endif %}
+{% endblock %}

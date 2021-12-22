@@ -1,0 +1,15 @@
+{% extends 'main/layout.html' %}
+
+{% block title %} {{ post.title }} {% endblock %}
+
+{% block content %}
+<h1>{{ post.title }}</h1>
+<h2 class="post__title">{{ post.title }}</h2>
+<h3 class="post__subtitle">{{ post.subtitle }}</h3>
+<h4 class="post__time">{{ post.date }}</h4>
+<p class="post__text">{{ post.text }}</p>
+{% if user.is_authenticated %}
+<a href="{% url 'posts-update' post.id %}" class="btn btn-warning">Update Post</a><br>
+<a href="{% url 'posts-delete' post.id %}" class="btn btn-warning">Delete Post</a><br>
+{% endif %}
+{% endblock %}
